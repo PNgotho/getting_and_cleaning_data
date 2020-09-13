@@ -49,9 +49,9 @@ Below is an outline of the processes I did to achieve the above instructions.
 				
 	2. Extracts only the measurements on the mean and standard deviation for each measurement.
 		a. Update the merged dataframe to exclude all columns in the measure columns that do not contain the words "mean" or "std".
-    b. Convert the merged dataframe into a table dataframe that is easier to manipulate.
-    
-  3. Uses descriptive activity names to name the activities in the data set
+		b. Convert the merged dataframe into a table dataframe that is easier to manipulate.
+	
+	3. Uses descriptive activity names to name the activities in the data set
 		a. Merge activity_labels to the merged data set using activity_code as the key
 
 	4. Appropriately labels the data set with descriptive variable names.
