@@ -1,40 +1,37 @@
-1. Merges the training and the test sets to create one data set.
-	a. Data files used are:
-		i. Data folder
-			1) Features.txt
-			2) Activity_labels.txt
-		ii. Data\Test folder
-			1) Subject_test.txt
-			2) y_test.txt
-			3) X_test.txt
-		iii. Data\Train folder
-			1) Subject_train.txt
-			2) y_train.txt
-			3) X_train.txt
-		
-	b. Process
-		i. Create tidy test data
-			1) Create new dataframe using X_test.txt data (use read.fwf since the 561 columns in the txt file are fixed width)
-			2) Set the 561 column names to descriptions in features.txt
-			3) Column bind y_test, subject_test as a new columns on the above dataframe
-			4) Create a new column named data_set and value is "test" in subject_test vector and column bind this to above dataframe
-		ii. Create tidy train data
-			1) Create new dataframe using X_train.txt data (use read.fwf since the 561 columns in the txt file are fixed width)
-			2) Set the 561 column names to descriptions in features.txt
-			3) Column bind y_train, subject_train as a new columns on the above dataframe
-			4) Create a new column named data_set and value is "train" in subject_test vector and column bind this to above dataframe
-		iii. Create the final merged data set
-			1) Merge the tidy test and tidy train data
-			
-2. Extracts only the measurements on the mean and standard deviation for each measurement.
-	a. Update the merged dataframe to exclude all columns in the measure columns that do not contain the words "mean" or "std".
-	b. Convert the merged dataframe into a table dataframe that is easier to manipulate.
+For each record it is provided:
+======================================
 
-3. Uses descriptive activity names to name the activities in the data set
-	a. Merge activity_labels to the merged data set using activity_code as the key
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
 
-4. Appropriately labels the data set with descriptive variable names.
-	a. ensured that at each stage above, the columns are labeled with a descriptive name
+The dataset includes the following files:
+=========================================
 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-	a. Create a new data table that summarizes the variables based on a group_by on activity and subject variables.
+- 'README.txt'
+
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+
+The following files are available for the train and test data. Their descriptions are equivalent. 
+
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+
+- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+
+- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
