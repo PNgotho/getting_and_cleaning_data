@@ -6,8 +6,9 @@ library(tidyr)
 #Clear the R environment before running script
 rm(list = ls())
 
-#Set working directory
-setwd("D:\\R_Training/getting_and_cleaning_data/getting_and_cleaning_data2")
+#Set working directory to the directory containing the project files
+path <- getwd()
+setwd(path)
 
 #Set up variable for columns to extract on test data
 thewidths <- c(17)
@@ -16,9 +17,9 @@ for (i in 1:560){
 }
 
 #Load the raw data into R
-features <- read.delim("features.txt", header = FALSE, sep = " ")
+features <- read.delim("./Data/features.txt", header = FALSE, sep = " ")
 features$V2 <- gsub(',', '_', features$V2) #Remove the "," from the labels: these will become column names
-activity <- read.delim("activity_labels.txt", header = FALSE, sep = " ")
+activity <- read.delim("./Data/activity_labels.txt", header = FALSE, sep = " ")
 colnames(activity) <- c("activity_code", "activity_desc")
 
 subject_test <- read.delim("./Data/test/subject_test.txt", header = FALSE)
@@ -59,6 +60,5 @@ merged_data_std_mean_summarized <- merged_data_std_mean %>%
   group_by(activity_desc, subject_code) %>%
   summarize_if(is.numeric, mean)
 
-#Export the data summarized data to a csv file
-write.csv(merged_data_std_mean_summarized,"./Output/final_output.csv", row.names = FALSE)
+#Export the data summarized data to a txt file
 write.table(merged_data_std_mean_summarized,"./Output/final_output.txt", row.names = FALSE)
